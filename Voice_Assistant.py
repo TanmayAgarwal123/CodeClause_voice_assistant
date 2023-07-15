@@ -1,7 +1,6 @@
 import speech_recognition as sr
 import pyttsx3
 
-# Initialize the speech recognition and text-to-speech engines
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 
@@ -25,8 +24,8 @@ def listen():
 def speak(text):
     engine.say(text)
     engine.runAndWait()
+    print("Assistant said:", text)
 
-# Example usage
 speak("Hello! How can I assist you?")
 
 while True:
@@ -36,6 +35,12 @@ while True:
     elif "goodbye" in command.lower():
         speak("Goodbye!")
         break
+    elif "what's your name" in command.lower():
+        speak("My name is Voice Assistant.")
+    elif "tell me a joke" in command.lower():
+        speak("Why don't scientists trust atoms? Because they make up everything!")
+    elif "what's the weather like" in command.lower():
+        speak("It's sunny today.")
     else:
         speak("Sorry, I don't know how to respond to that.")
 
